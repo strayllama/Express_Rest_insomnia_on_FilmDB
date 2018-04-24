@@ -23,7 +23,7 @@ filmsRouter.get('/:id',function (req, res) {
 
 // CREATE
 filmsRouter.post('/', function (req, res) {
-  const newFilm = req.body.film; // use insomnia to post the film.
+  const newFilm = req.body.film; // use insomnia to post the film. with KEY film  { film: xxx }
   filmsData.add(newFilm);
   // return all films to show addition
   const allFilms = filmsData.all();
@@ -48,6 +48,7 @@ filmsRouter.put('/:id', function (req, res) {
   const newVersionOfFilm = req.body.film;
   const index = req.params.id;
   filmsData.update(index, newVersionOfFilm);
+
   // return all films to show update
   const allFilms = filmsData.all();
   res.json({films: allFilms});
@@ -64,6 +65,7 @@ filmsRouter.put('/:id', function (req, res) {
 // 			]
 // 		}
 // }
+
 
 
 filmsRouter.delete('/:id', function (req, res) {
